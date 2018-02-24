@@ -1,0 +1,76 @@
+A
+B
+A-B
+
+SEL-A
+SEL-B
+SEL-A-B
+
+L
+R
+U
+D
+
+SEL-L
+SEL-R
+SEL-U
+SEL-D
+
+L-A
+R-A
+U-A
+D-A
+
+SEL-L-A
+SEL-R-A
+SEL-U-A
+SEL-D-A
+
+L-B
+R-B
+U-B
+D-B
+
+SEL-L-B
+SEL-R-B
+SEL-U-B
+SEL-D-B
+
+L-A-B
+R-A-B
+U-A-B
+D-A-B
+
+SEL-L-A-B
+SEL-R-A-B
+SEL-U-A-B
+SEL-D-A-B
+
+= 38 variants ( = 6 bits)
+
+star power
+
+data representation:
+1 byte: # of ticks until next row of events
+row of notes:
+  1 byte: lower 6 bits: enum value that describes which buttons to _tap_
+          upper bit: 1=next byte contains button to _hold_ or _release_
+
+how to generate the data:
+input can be a text file
+
+-------A
+--------
+------B-
+-------A
+------BA
+L-----B-
+--------
+--------
+-R------
+----S--A
+--------
+-------A
+L-----B-
+
+start by running XM through converter; spits out a template text file that marks all the notes in channel X
